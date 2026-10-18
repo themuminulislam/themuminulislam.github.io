@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>যোগাযোগ | M i Creation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html">M i Creation</a>
+  <ul class="nav-links">
+    <li><a href="index.html">হোম</a></li>
+    <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+    <li><a href="contact.html" class="active">যোগাযোগ</a></li>
+    <li class="cart-icon">কার্ট <span class="cart-badge" id="cart-count">0</span></li>
+    <li><button class="sign-in-btn" id="signin">সাইন ইন</button></li>
+  </ul>
+</nav>
+<section class="section">
+  <h2>যোগাযোগ</h2>
+  <form id="contact-form">
+    <input type="text" placeholder="তোমার নাম" required aria-label="নাম">
+    <input type="email" placeholder="ইমেইল" required aria-label="ইমেইল">
+    <textarea rows="5" placeholder="তোমার বার্তা" required aria-label="বার্তা"></textarea>
+    <button class="btn" type="submit">বার্তা পাঠাও</button>
+  </form>
+  <p id="msg"></p>
+</section>
+<footer>© 2026 M i Creation। সর্বস্বত্ব সংরক্ষিত।</footer>
+<script src="script.js"></script>
+</body>
+</html>
