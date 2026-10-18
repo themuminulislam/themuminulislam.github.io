@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>আমাদের সম্পর্কে | M i Creation</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | M i Creation</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-  <a class="logo" href="index.html">M i Creation</a>
-  <ul class="nav-links">
-    <li><a href="index.html">হোম</a></li>
-    <li><a href="about.html" class="active">আমাদের সম্পর্কে</a></li>
-    <li><a href="contact.html">যোগাযোগ</a></li>
-    <li class="cart-icon">কার্ট <span class="cart-badge" id="cart-count">0</span></li>
-    <li><button class="sign-in-btn" id="signin">সাইন ইন</button></li>
-  </ul>
-</nav>
-<section class="section">
-  <h2>আমাদের সম্পর্কে</h2>
-  <p>M i Creation একটি ছোট ক্রিয়েটিভ স্টুডিও। আমরা লোগো, পোস্টার ও ওয়েবসাইট তৈরি করি। প্রতিটি কাজ আমরা গ্রাহকের চাহিদা বুঝে নিজ হাতে করি।</p>
-</section>
-<footer>© 2026 M i Creation। সর্বস্বত্ব সংরক্ষিত।</footer>
-<script src="script.js"></script>
+    <nav>
+        <div class="logo"> M i Creation</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="cart-icon">
+                <a href="#cart" aria-label="Cart"><svg class="nav-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h2.5l2 10.5h9.5l2-7.5H7"/><circle class="accf" cx="9.5" cy="19" r="1.5"/><circle class="accf" cx="16.5" cy="19" r="1.5"/></svg></a>
+                <span class="cart-badge">0</span>
+            </li>
+            <li><button class="sign-in-btn" onclick="handleSignIn()">Sign In</button></li>
+        </ul>
+    </nav>
+    <section class="about-section" id="about">
+        <h2 class="section-title"><span class="highlight">মুমিনুল ইসলাম</span> কে?</h2>
+        <p class="section-description">
+মুমিনুল ইসলাম বাংলাদেশের একজন গ্রাফিক আর্টিস্ট, টাইপোগ্রাফার এবং ফন্ট ডিজাইনার। বাংলা ক্যালিগ্রাফি, লেটারিং আর টাইপফেস তৈরির মতো দারুণ সব কাজের জন্য এদেশের ক্রিয়েটিভ কমিউনিটিতে তিনি বেশ পরিচিত।
+        </p>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon"><svg class="ui-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="tile" x="3" y="3" width="42" height="42" rx="12"/><path class="acc" d="M14 11h20"/><path d="M24 38c-6-6.5-9-11-9-15a9 9 0 0 1 18 0c0 4-3 8.5-9 15z"/><circle class="acc" cx="24" cy="23" r="3"/></svg></div>
+                <h3 class="card-title">প্রতিষ্ঠাতা <span style="color: #1abc9c;">(CEO)</span></h3>
+                <p class="card-text">
+ 
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><svg class="ui-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="tile" x="3" y="3" width="42" height="42" rx="12"/><path d="M24 36l-7-9 3-12 4-3 4 3 3 12z"/><path d="M24 24v8"/><circle class="acc" cx="24" cy="21" r="1.6"/><path class="acc" d="M14 40h20"/></svg></div>
+                <h3 class="card-title"><span style="color: #1abc9c;">ফন্ট</span> নির্মাতা</h3>
+                <p class="card-text">
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><svg class="ui-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="tile" x="3" y="3" width="42" height="42" rx="12"/><path d="M24 14l14 7-14 7-14-7z"/><path d="M17 25v6c0 2 3.5 4 7 4s7-2 7-4v-6"/><path class="acc" d="M38 21v9"/></svg></div>
+                <h3 class="card-title">প্রশিক্ষক</h3>
+                <p class="card-text">
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-toggle" onclick="toggleTheme()"><svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><path class="acc" d="M17 4v3M15.5 5.5h3"/></svg></div>
+    <div class="scroll-top" onclick="scrollToTop()"><svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="acc" d="M7 3.5h10"/><path d="M12 20V8"/><path d="M6.5 13.5L12 8l5.5 5.5"/></svg></div>
+
+    <footer>&copy; 2026 M i Creation</footer>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | M i Creation</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo"> M i Creation</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html" class="active">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="cart-icon">
+                <a href="#cart" aria-label="Cart"><svg class="nav-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h2.5l2 10.5h9.5l2-7.5H7"/><circle class="accf" cx="9.5" cy="19" r="1.5"/><circle class="accf" cx="16.5" cy="19" r="1.5"/></svg></a>
+                <span class="cart-badge">0</span>
+            </li>
+            <li><button class="sign-in-btn" onclick="handleSignIn()">Sign In</button></li>
+        </ul>
+    </nav>
+    <section class="courses-section" id="courses">
+        <h2 class="section-title">My <span class="highlight">Courses</span></h2>
+        <p class="section-description">
+            Choose from our collection of hands-on courses designed for real-world skills.
+        </p>
+        <div class="course-grid">
+            <div class="course-card">
+                <div class="course-image">Photoshop</div>
+                <div class="course-content">
+                    <h3 class="course-title">Professional Photoshop Course</h3>
+                    <p class="card-text">Complete graphics design course from beginner to advanced level.</p>
+                    <p class="course-price">300 tk</p>
+                    <button class="btn btn-primary" onclick="enrollCourse('Graphics Design')">Enroll Now</button>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image" style="background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);">Typography</div>
+                <div class="course-content">
+                    <h3 class="course-title">Typography PRO 2</h3>
+                    <p class="card-text">Advanced typography and Bengali letterform design.</p>
+                    <p class="course-price">500 tk</p>
+                    <button class="btn btn-primary" onclick="enrollCourse('Typography PRO')">Enroll Now</button>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image" style="background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);">Illustrator</div>
+                <div class="course-content">
+                    <h3 class="course-title">Professional Illustrator Course</h3>
+                    <p class="card-text">Master Adobe Illustrator for professional design work.</p>
+                    <p class="course-price">300 tk</p>
+                    <button class="btn btn-primary" onclick="enrollCourse('Illustrator')">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-toggle" onclick="toggleTheme()"><svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><path class="acc" d="M17 4v3M15.5 5.5h3"/></svg></div>
+    <div class="scroll-top" onclick="scrollToTop()"><svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="acc" d="M7 3.5h10"/><path d="M12 20V8"/><path d="M6.5 13.5L12 8l5.5 5.5"/></svg></div>
+
+    <footer>&copy; 2026 M i Creation</footer>
+    <script src="script.js"></script>
+</body>
+</html>
