@@ -479,7 +479,28 @@ body {
     body.light .theme-toggle, body.light .scroll-top { color: #0e8a70; background: rgba(255, 255, 255, 0.8); border-color: #0e8a70; }
     body.light .theme-toggle:hover, body.light .scroll-top:hover { background: #0e8a70; color: #ffffff; }
     body.light .theme-toggle:hover .acc, body.light .scroll-top:hover .acc { stroke: #ffffff; }
-/* footer & contact */
-.contact-section{padding:4rem 5%;max-width:900px;margin:0 auto;text-align:center}
-.contact-section .cta-buttons{justify-content:center;margin-top:2rem}
-footer{text-align:center;padding:2rem 5%;opacity:.75}
+/* footer */
+footer { text-align: center; padding: 2rem 5%; opacity: .75; }
+
+/* contact page */
+.contact-page { padding: 4rem 5% 3rem; max-width: 1100px; margin: 0 auto; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 1.5rem; align-items: start; }
+.contact-info { display: grid; gap: 1.2rem; }
+.contact-card { display: block; text-decoration: none; color: inherit; padding: 1.5rem; }
+.contact-card .card-icon { margin-bottom: .6rem; display: block; }
+.contact-card h3 { font-size: 1.1rem; margin-bottom: .3rem; }
+.contact-card span { color: #1abc9c; font-size: .9rem; word-break: break-all; }
+.contact-form { background: linear-gradient(135deg, rgba(26,188,156,.1) 0%, rgba(52,152,219,.05) 100%);
+    border: 1px solid rgba(26,188,156,.3); border-radius: 15px; padding: 2rem; }
+.contact-form label { display: block; font-size: .9rem; font-weight: 600; margin: 0 0 .4rem; }
+.contact-form label i { color: #e74c3c; font-style: normal; }
+.contact-form .field { margin-bottom: 1.2rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: .85rem 1rem; border-radius: 10px;
+    border: 1px solid rgba(26,188,156,.3); background: rgba(10,22,40,.6); color: #fff; font: inherit; }
+.contact-form textarea { min-height: 150px; resize: vertical; }
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid #1abc9c; outline-offset: 1px; }
+.contact-form .btn { width: 100%; }
+#form-status { margin-top: 1rem; text-align: center; color: #1abc9c; min-height: 1.4em; }
+body.light .contact-form input, body.light .contact-form textarea { background: rgba(255,255,255,.8); color: #0a1628; }
+body.light .contact-card span { color: #0e8a70; }
+@media (max-width: 800px) { .contact-layout { grid-template-columns: 1fr; } .contact-form { padding: 1.3rem; } }

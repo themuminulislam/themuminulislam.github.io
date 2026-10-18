@@ -63,3 +63,22 @@ function updateCart() {
     try { localStorage.setItem('cart', cartCount); } catch (e) {}
     if (badge) badge.textContent = cartCount;
 }
+
+// Contact form: opens the visitor's email app with the message filled in
+var CONTACT_EMAIL = 'your-email@example.com'; // <-- নিজের ইমেইল এখানে দাও
+var cf = document.getElementById('contact-form');
+if (cf) {
+    var et = document.getElementById('email-text'), ec = document.getElementById('email-card');
+    if (et) et.textContent = CONTACT_EMAIL;
+    if (ec) ec.href = 'mailto:' + CONTACT_EMAIL;
+    cf.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('c-name').value;
+        var from = document.getElementById('c-email').value;
+        var subject = document.getElementById('c-subject').value || 'Website message';
+        var msg = document.getElementById('c-msg').value;
+        var body = msg + '\n\n— ' + name + ' (' + from + ')';
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        document.getElementById('form-status').textContent = 'তোমার ইমেইল অ্যাপ খুলছে। সেখান থেকে Send চাপো।';
+    });
+}
