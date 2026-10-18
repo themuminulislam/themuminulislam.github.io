@@ -4,18 +4,557 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M i Creation</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0a1628 0%, #1a3a52 50%, #0f2438 100%);
+        color: #ffffff;
+        line-height: 1.6;
+        min-height: 100vh;
+    }
+
+/* Navigation */
+    nav {
+        background: rgba(10, 22, 40, 0.95);
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(26, 188, 156, 0.2);
+    }
+
+.logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1abc9c;
+    }
+
+.nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        align-items: center;
+    }
+
+.nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: 500;
+    }
+
+.nav-links a:hover,
+    .nav-links a.active {
+        color: #1abc9c;
+    }
+
+.cart-icon {
+        position: relative;
+    }
+
+.cart-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #e74c3c;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+    }
+
+.sign-in-btn {
+        background: transparent;
+        border: 1px solid #1abc9c;
+        color: #1abc9c;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+.sign-in-btn:hover {
+        background: #1abc9c;
+        color: #0a1628;
+    }
+
+/* Hero Section */
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 4rem 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+.hero-image {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+    }
+
+.profile-card {
+        background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 2px solid rgba(26, 188, 156, 0.3);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+.profile-card img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+.hero-content {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+    }
+
+.label {
+        color: #1abc9c;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
+
+.hero-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+.hero-title .highlight {
+        color: #1abc9c;
+    }
+
+.hero-description {
+        color: #b0c4de;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+.search-box {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(26, 188, 156, 0.3);
+        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+.search-box input {
+        background: transparent;
+        border: none;
+        color: white;
+        flex: 1;
+        outline: none;
+        font-size: 1rem;
+    }
+
+.search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+.cta-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+.btn {
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+    }
+
+.btn-primary {
+        background: #1abc9c;
+        color: #0a1628;
+        font-weight: 600;
+    }
+
+.btn-primary:hover {
+        background: #16a085;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(26, 188, 156, 0.4);
+    }
+
+.btn-secondary {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+    }
+
+.btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+/* About Section */
+    .about-section {
+        padding: 4rem 5%;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+.section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+.section-title .highlight {
+        color: #1abc9c;
+    }
+
+.section-description {
+        text-align: center;
+        color: #b0c4de;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+.card {
+        background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+        border: 1px solid rgba(26, 188, 156, 0.3);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s;
+    }
+
+.card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(26, 188, 156, 0.2);
+        border-color: #1abc9c;
+    }
+
+.card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #1abc9c;
+    }
+
+.card-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+.card-text {
+        color: #b0c4de;
+        line-height: 1.8;
+    }
+
+/* Courses Section */
+    .courses-section {
+        padding: 4rem 5%;
+    }
+
+.course-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+.course-card {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+        border: 1px solid rgba(26, 188, 156, 0.2);
+    }
+
+.course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(26, 188, 156, 0.3);
+    }
+
+.course-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #1abc9c 0%, #3498db 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+.course-content {
+        padding: 1.5rem;
+    }
+
+.course-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+.course-price {
+        color: #1abc9c;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 1rem 0;
+    }
+
+/* Theme Toggle */
+    .theme-toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: rgba(26, 188, 156, 0.2);
+        border: 1px solid #1abc9c;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1.5rem;
+    }
+
+.theme-toggle:hover {
+        background: #1abc9c;
+        transform: rotate(180deg);
+    }
+
+.scroll-top {
+        position: fixed;
+        bottom: 5rem;
+        right: 2rem;
+        background: rgba(26, 188, 156, 0.2);
+        border: 1px solid #1abc9c;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1.5rem;
+    }
+
+.scroll-top:hover {
+        background: #1abc9c;
+    }
+
+/* Responsive */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            gap: 1rem;
+        }
+        
+        .hero {
+            padding: 2rem 5%;
+        }
+    }
+
+    /* ===== Responsive fixes (added: mobile + desktop view only) ===== */
+    html { -webkit-text-size-adjust: 100%; }
+    body { overflow-x: hidden; font-family: 'Segoe UI', 'Nirmala UI', 'Noto Sans Bengali', Tahoma, Geneva, Verdana, sans-serif; }
+    img { max-width: 100%; height: auto; }
+    section[id] { scroll-margin-top: 64px; }
+
+    /* nav aligns with page content on wide screens */
+    nav { padding-left: max(5%, calc((100% - 1400px) / 2)); padding-right: max(5%, calc((100% - 1400px) / 2)); }
+    .nav-links li { white-space: nowrap; }
+
+    .profile-card img { display: block; }
+
+    /* hero */
+    .hero { justify-content: center; gap: 3rem 4rem; }
+    .hero-image { flex: 0 1 420px; min-width: min(300px, 100%); }
+    .hero-content { flex: 1 1 420px; min-width: min(300px, 100%); }
+    .hero-title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.2; overflow-wrap: anywhere; }
+    .hero-description { font-size: clamp(1rem, 2.2vw, 1.1rem); }
+    .search-box input { min-width: 0; width: 100%; }
+
+    /* sections */
+    .section-title { font-size: clamp(1.7rem, 4.5vw, 2.5rem); line-height: 1.3; }
+    .section-description { padding-left: .5rem; padding-right: .5rem; }
+    .cards-container,
+    .course-grid { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+    .course-card { display: flex; flex-direction: column; }
+    .course-content { display: flex; flex-direction: column; flex: 1; }
+    .course-content .btn { margin-top: auto; align-self: flex-start; }
+
+    /* floating buttons never overlap */
+    .scroll-top { bottom: 5.5rem; }
+
+    /* tablet / mobile */
+    @media (max-width: 768px) {
+        section[id] { scroll-margin-top: 115px; }
+        nav { flex-direction: column; gap: .6rem; padding-top: .7rem; padding-bottom: .7rem; }
+        .nav-links { flex-wrap: wrap; justify-content: center; gap: .5rem 1rem; font-size: .95rem; }
+        .sign-in-btn { padding: .4rem 1rem; }
+        .hero { padding: 2rem 5%; gap: 2rem; }
+        .about-section, .courses-section { padding: 3rem 5%; }
+    }
+
+    /* small phones */
+    @media (max-width: 480px) {
+        .nav-links { gap: .5rem .8rem; font-size: .88rem; }
+        .logo { font-size: 1.3rem; }
+        .profile-card { padding: 1rem; border-radius: 16px; }
+        .label { font-size: .8rem; letter-spacing: 1.5px; }
+        .search-box { padding: .8rem; }
+        .cta-buttons .btn { flex: 1 1 calc(50% - .5rem); padding: .8rem 1rem; }
+        .cta-buttons .btn-primary { flex-basis: 100%; }
+        .card { padding: 1.3rem; }
+        .card-title { font-size: 1.25rem; }
+        .course-image { height: 170px; }
+        .course-content { padding: 1.2rem; }
+        .course-content .btn { align-self: stretch; }
+        .theme-toggle, .scroll-top { width: 44px; height: 44px; right: 1rem; font-size: 1.2rem; }
+        .theme-toggle { bottom: 1rem; }
+        .scroll-top { bottom: 4.3rem; }
+    }
+
+    /* ===== Custom icons + light mode (added) ===== */
+    .card-icon { line-height: 0; }
+    .ui-icon { width: 56px; height: 56px; display: block; }
+    .ui-icon .tile { fill: rgba(26, 188, 156, 0.12); stroke: rgba(26, 188, 156, 0.35); stroke-width: 1.5; }
+    .ui-icon .acc, .tg-ico .acc { stroke: #3498db; }
+    .nav-ico { display: block; }
+    .nav-ico .accf { fill: #1abc9c; stroke: none; }
+    .theme-toggle, .scroll-top { color: #1abc9c; }
+    .theme-toggle:hover, .scroll-top:hover { color: #0a1628; }
+    .theme-toggle:hover .acc, .scroll-top:hover .acc { stroke: #0a1628; }
+
+    body.light { color: #1b2a3a; }
+    body.light nav { background: rgba(255, 255, 255, 0.92); border-bottom-color: rgba(14, 138, 112, 0.35); }
+    body.light .nav-links a { color: #1b2a3a; }
+    body.light .nav-links a:hover, body.light .nav-links a.active { color: #0e8a70; }
+    body.light .logo, body.light .label, body.light .highlight, body.light .course-price, body.light .card-icon { color: #0e8a70; }
+    body.light .card-title span { color: #0e8a70 !important; }
+    body.light .sign-in-btn { color: #0e8a70; border-color: #0e8a70; }
+    body.light .sign-in-btn:hover { background: #0e8a70; color: #ffffff; }
+    body.light .hero-description, body.light .section-description, body.light .card-text { color: #46607a; }
+    body.light .search-box { background: rgba(255, 255, 255, 0.75); border-color: rgba(14, 138, 112, 0.4); }
+    body.light .search-box input { color: #1b2a3a; }
+    body.light .search-box input::placeholder { color: rgba(27, 42, 58, 0.5); }
+    body.light .btn-secondary { color: #1b2a3a; border-color: #1b2a3a; }
+    body.light .btn-secondary:hover { background: rgba(27, 42, 58, 0.08); }
+    body.light .about-section { background: rgba(255, 255, 255, 0.45); }
+    body.light .card { background: rgba(255, 255, 255, 0.75); }
+    body.light .card-title, body.light .course-title { color: #1b2a3a; }
+    body.light .course-image { color: #ffffff; }
+    body.light .course-card { background: #ffffff; border-color: rgba(14, 138, 112, 0.25); }
+    body.light .theme-toggle, body.light .scroll-top { color: #0e8a70; background: rgba(255, 255, 255, 0.8); border-color: #0e8a70; }
+    body.light .theme-toggle:hover, body.light .scroll-top:hover { background: #0e8a70; color: #ffffff; }
+    body.light .theme-toggle:hover .acc, body.light .scroll-top:hover .acc { stroke: #ffffff; }
+/* footer */
+
+/* contact page */
+.contact-page { padding: 4rem 5% 3rem; max-width: 1100px; margin: 0 auto; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 1.5rem; align-items: start; }
+.contact-info { display: grid; gap: 1.2rem; }
+.contact-card { display: block; text-decoration: none; color: inherit; padding: 1.5rem; }
+.contact-card .card-icon { margin-bottom: .6rem; display: block; }
+.contact-card h3 { font-size: 1.1rem; margin-bottom: .3rem; }
+.contact-card span { color: #1abc9c; font-size: .9rem; word-break: break-all; }
+.contact-form { background: linear-gradient(135deg, rgba(26,188,156,.1) 0%, rgba(52,152,219,.05) 100%);
+    border: 1px solid rgba(26,188,156,.3); border-radius: 15px; padding: 2rem; }
+.contact-form label { display: block; font-size: .9rem; font-weight: 600; margin: 0 0 .4rem; }
+.contact-form label i { color: #e74c3c; font-style: normal; }
+.contact-form .field { margin-bottom: 1.2rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: .85rem 1rem; border-radius: 10px;
+    border: 1px solid rgba(26,188,156,.3); background: rgba(10,22,40,.6); color: #fff; font: inherit; }
+.contact-form textarea { min-height: 150px; resize: vertical; }
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid #1abc9c; outline-offset: 1px; }
+.contact-form .btn { width: 100%; }
+#form-status { margin-top: 1rem; text-align: center; color: #1abc9c; min-height: 1.4em; }
+body.light .contact-form input, body.light .contact-form textarea { background: rgba(255,255,255,.8); color: #0a1628; }
+body.light .contact-card span { color: #0e8a70; }
+@media (max-width: 800px) { .contact-layout { grid-template-columns: 1fr; } .contact-form { padding: 1.3rem; } }
+
+/* home extras */
+.home-block { padding: 4rem 5%; max-width: 1100px; margin: 0 auto; }
+.skill-card { text-align: center; }
+.skill-card .card-icon { margin-bottom: .8rem; }
+.center-action { text-align: center; margin-top: 2.5rem; }
+.about-teaser { background: rgba(0,0,0,.2); padding: 4rem 5%; text-align: center; }
+.about-teaser .section-description { margin-bottom: 2rem; }
+.cta-band { margin: 4rem 5%; padding: 3rem 1.5rem; text-align: center; border-radius: 20px;
+    background: linear-gradient(135deg, rgba(26,188,156,.18) 0%, rgba(52,152,219,.1) 100%);
+    border: 1px solid rgba(26,188,156,.35); }
+.cta-band h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: .6rem; }
+.cta-band p { color: #b0c4de; margin-bottom: 1.5rem; }
+.cta-band .cta-buttons { justify-content: center; }
+
+/* footer */
+.site-footer { background: rgba(10,22,40,.95); border-top: 1px solid rgba(26,188,156,.25); margin-top: 3rem; }
+.footer-grid { max-width: 1100px; margin: 0 auto; padding: 3rem 5% 2rem; display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr; gap: 2rem; }
+.footer-brand .logo { margin-bottom: .6rem; }
+.footer-brand p { color: #b0c4de; max-width: 320px; font-size: .95rem; }
+.site-footer h4 { color: #1abc9c; margin-bottom: .8rem; font-size: 1rem; }
+.site-footer ul { list-style: none; display: grid; gap: .5rem; }
+.site-footer a { color: #ffffff; text-decoration: none; opacity: .85; transition: color .3s, opacity .3s; }
+.site-footer a:hover { color: #1abc9c; opacity: 1; }
+.footer-bottom { border-top: 1px solid rgba(26,188,156,.15); text-align: center; padding: 1.2rem 5%; color: #b0c4de; font-size: .9rem; }
+body.light .site-footer { background: rgba(255,255,255,.65); }
+body.light .site-footer a { color: #0a1628; }
+body.light .site-footer h4, body.light .site-footer a:hover { color: #0e8a70; }
+body.light .footer-brand p, body.light .footer-bottom, body.light .cta-band p { color: #46607a; }
+body.light .about-teaser { background: rgba(255,255,255,.45); }
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-brand p { margin: 0 auto; } }
+
+    html { scroll-behavior: smooth; }
+    </style>
 </head>
 <body>
     <nav>
         <div class="logo"> M i Creation</div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li class="cart-icon">
                 <a href="#cart" aria-label="Cart"><svg class="nav-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h2.5l2 10.5h9.5l2-7.5H7"/><circle class="accf" cx="9.5" cy="19" r="1.5"/><circle class="accf" cx="16.5" cy="19" r="1.5"/></svg></a>
                 <span class="cart-badge">0</span>
@@ -23,6 +562,7 @@
             <li><button class="sign-in-btn" onclick="handleSignIn()">Sign In</button></li>
         </ul>
     </nav>
+
     <section class="hero" id="home">
         <div class="hero-image">
             <div class="profile-card">
@@ -40,7 +580,7 @@
                 <input type="text" placeholder="Browse courses..." id="searchInput">
             </div>
             <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="window.location.href='courses.html'">View Courses</button>
+                <button class="btn btn-primary" onclick="window.location.href='#courses'">View Courses</button>
                 <button class="btn btn-secondary" onclick="window.open('https://www.facebook.com/themuminulislam', '_blank')">Facebook</button>
                 <button class="btn btn-secondary" onclick="window.open('https://potrodip.github.io/', '_blank')">Webzine</button>
             </div>
@@ -57,7 +597,7 @@
         </div>
     </section>
 
-    <section class="courses-section" id="courses-preview">
+    <section class="courses-section" id="courses">
         <h2 class="section-title">Popular <span class="highlight">Courses</span></h2>
         <p class="section-description">শুরু করার জন্য আমাদের জনপ্রিয় কোর্সগুলো।</p>
         <div class="course-grid">
@@ -89,21 +629,64 @@
                 </div>
             </div>
                 </div>
-        <div class="center-action"><a class="btn btn-secondary" href="courses.html" style="text-decoration:none;display:inline-block;">সব কোর্স দেখো</a></div>
     </section>
 
-    <section class="about-teaser">
+    
+
+    <section class="about-section" id="about">
         <h2 class="section-title"><span class="highlight">মুমিনুল ইসলাম</span> কে?</h2>
-        <p class="section-description">বাংলাদেশের একজন গ্রাফিক আর্টিস্ট, টাইপোগ্রাফার এবং ফন্ট ডিজাইনার। বাংলা ক্যালিগ্রাফি, লেটারিং আর টাইপফেস তৈরির কাজের জন্য ক্রিয়েটিভ কমিউনিটিতে পরিচিত।</p>
-        <a class="btn btn-primary" href="about.html" style="text-decoration:none;display:inline-block;">আরও জানো</a>
+        <p class="section-description">
+মুমিনুল ইসলাম বাংলাদেশের একজন গ্রাফিক আর্টিস্ট, টাইপোগ্রাফার এবং ফন্ট ডিজাইনার। বাংলা ক্যালিগ্রাফি, লেটারিং আর টাইপফেস তৈরির মতো দারুণ সব কাজের জন্য এদেশের ক্রিয়েটিভ কমিউনিটিতে তিনি বেশ পরিচিত।
+        </p>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon"><svg class="ui-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="tile" x="3" y="3" width="42" height="42" rx="12"/><path class="acc" d="M14 11h20"/><path d="M24 38c-6-6.5-9-11-9-15a9 9 0 0 1 18 0c0 4-3 8.5-9 15z"/><circle class="acc" cx="24" cy="23" r="3"/></svg></div>
+                <h3 class="card-title">প্রতিষ্ঠাতা <span style="color: #1abc9c;">(CEO)</span></h3>
+                <p class="card-text">
+ 
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><svg class="ui-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="tile" x="3" y="3" width="42" height="42" rx="12"/><path d="M24 36l-7-9 3-12 4-3 4 3 3 12z"/><path d="M24 24v8"/><circle class="acc" cx="24" cy="21" r="1.6"/><path class="acc" d="M14 40h20"/></svg></div>
+                <h3 class="card-title"><span style="color: #1abc9c;">ফন্ট</span> নির্মাতা</h3>
+                <p class="card-text">
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><svg class="ui-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="tile" x="3" y="3" width="42" height="42" rx="12"/><path d="M24 14l14 7-14 7-14-7z"/><path d="M17 25v6c0 2 3.5 4 7 4s7-2 7-4v-6"/><path class="acc" d="M38 21v9"/></svg></div>
+                <h3 class="card-title">প্রশিক্ষক</h3>
+                <p class="card-text">
+                </p>
+            </div>
+        </div>
     </section>
 
-    <section class="cta-band">
-        <h2>শেখা শুরু করতে প্রস্তুত?</h2>
-        <p>কোর্স নিয়ে প্রশ্ন থাকলে সরাসরি যোগাযোগ করো।</p>
-        <div class="cta-buttons">
-            <a class="btn btn-primary" href="contact.html" style="text-decoration:none;display:inline-block;">যোগাযোগ করো</a>
-            <a class="btn btn-secondary" href="courses.html" style="text-decoration:none;display:inline-block;">কোর্স দেখো</a>
+    <section class="contact-page" id="contact">
+        <h1 class="section-title">Contact <span class="highlight">Me</span></h1>
+        <p class="section-description">কোর্স নিয়ে প্রশ্ন আছে বা একসাথে কাজ করতে চাও? নিচের যেকোনো মাধ্যমে যোগাযোগ করো।</p>
+        <div class="contact-layout">
+            <div class="contact-info">
+                <a class="card contact-card" id="email-card" href="#">
+                    <svg class="card-icon" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                    <h3>Email</h3><span id="email-text">your-email@example.com</span>
+                </a>
+                <a class="card contact-card" href="https://www.facebook.com/themuminulislam" target="_blank" rel="noopener">
+                    <svg class="card-icon" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+                    <h3>Facebook</h3><span>Muminul Islam</span>
+                </a>
+                <a class="card contact-card" href="https://potrodip.github.io/" target="_blank" rel="noopener">
+                    <svg class="card-icon" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
+                    <h3>Webzine</h3><span>potrodip.github.io</span>
+                </a>
+            </div>
+            <form class="contact-form" id="contact-form">
+                <div class="field"><label for="c-name">Your Name <i>*</i></label><input id="c-name" type="text" placeholder="তোমার পুরো নাম" required></div>
+                <div class="field"><label for="c-email">Email Address <i>*</i></label><input id="c-email" type="email" placeholder="your@email.com" required></div>
+                <div class="field"><label for="c-subject">Subject</label><input id="c-subject" type="text" placeholder="কী নিয়ে জানতে চাও?"></div>
+                <div class="field"><label for="c-msg">Message <i>*</i></label><textarea id="c-msg" placeholder="তোমার বার্তা লেখো..." required></textarea></div>
+                <button class="btn btn-primary" type="submit">Send Message</button>
+                <p id="form-status" role="status"></p>
+            </form>
         </div>
     </section>
 
@@ -116,10 +699,10 @@
             <div>
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div>
@@ -135,6 +718,109 @@
 
     <div class="theme-toggle" onclick="toggleTheme()"><svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><path class="acc" d="M17 4v3M15.5 5.5h3"/></svg></div>
     <div class="scroll-top" onclick="scrollToTop()"><svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="acc" d="M7 3.5h10"/><path d="M12 20V8"/><path d="M6.5 13.5L12 8l5.5 5.5"/></svg></div>
-    <script src="script.js"></script>
+    
+
+    <script>
+// Sign In
+function handleSignIn() {
+    alert('Sign In functionality will redirect to login page');
+}
+
+// Enroll Course
+function enrollCourse(courseName) {
+    alert(`You are enrolling in: ${courseName}\n\nThis will redirect to the course enrollment page.`);
+}
+
+// Search (only on pages that have the search box)
+var searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('input', function (e) {
+        console.log('Searching for:', e.target.value.toLowerCase());
+    });
+}
+
+// Theme (remembered across pages)
+const ICON_MOON = '<svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><path class="acc" d="M17 4v3M15.5 5.5h3"/></svg>';
+const ICON_SUN = '<svg class="tg-ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path class="acc" d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>';
+var isDark = true;
+function applyTheme() {
+    document.body.classList.toggle('light', !isDark);
+    document.body.style.background = isDark
+        ? 'linear-gradient(135deg, #0a1628 0%, #1a3a52 50%, #0f2438 100%)'
+        : 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+    var t = document.querySelector('.theme-toggle');
+    if (t) t.innerHTML = isDark ? ICON_MOON : ICON_SUN;
+}
+function toggleTheme() {
+    isDark = !isDark;
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    applyTheme();
+}
+try { if (localStorage.getItem('theme') === 'light') { isDark = false; applyTheme(); } } catch (e) {}
+
+// Scroll to top
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function () {
+    var b = document.querySelector('.scroll-top');
+    if (b) b.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+});
+
+// Smooth scroll for same-page # links
+document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Cart (remembered across pages)
+var cartCount = 0;
+try { cartCount = parseInt(localStorage.getItem('cart') || '0', 10) || 0; } catch (e) {}
+var badge = document.querySelector('.cart-badge');
+if (badge) badge.textContent = cartCount;
+function updateCart() {
+    cartCount++;
+    try { localStorage.setItem('cart', cartCount); } catch (e) {}
+    if (badge) badge.textContent = cartCount;
+}
+
+// Contact form: opens the visitor's email app with the message filled in
+var CONTACT_EMAIL = 'your-email@example.com'; // <-- নিজের ইমেইল এখানে দাও
+var cf = document.getElementById('contact-form');
+if (cf) {
+    var et = document.getElementById('email-text'), ec = document.getElementById('email-card');
+    if (et) et.textContent = CONTACT_EMAIL;
+    if (ec) ec.href = 'mailto:' + CONTACT_EMAIL;
+    cf.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('c-name').value;
+        var from = document.getElementById('c-email').value;
+        var subject = document.getElementById('c-subject').value || 'Website message';
+        var msg = document.getElementById('c-msg').value;
+        var body = msg + '\n\n— ' + name + ' (' + from + ')';
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        document.getElementById('form-status').textContent = 'তোমার ইমেইল অ্যাপ খুলছে। সেখান থেকে Send চাপো।';
+    });
+}
+
+// Highlight the menu link of the section being viewed
+(function () {
+    var links = document.querySelectorAll('.nav-links a[href^="#"]');
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var ids = ['home', 'courses', 'about', 'contact'];
+    function spy() {
+        var cur = 'home', y = window.scrollY + 140;
+        ids.forEach(function (id) { var el = document.getElementById(id); if (el && el.offsetTop <= y) cur = id; });
+        links.forEach(function (a) { a.classList.remove('active'); });
+        if (map[cur]) map[cur].classList.add('active');
+    }
+    window.addEventListener('scroll', spy); spy();
+})();
+
+    </script>
 </body>
 </html>
