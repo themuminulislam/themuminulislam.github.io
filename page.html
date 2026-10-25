@@ -1,0 +1,8 @@
+<!doctype html><html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>T</title>
+<link rel=stylesheet href=base.css>
+<style>main{max-width:760px}</style>
+<div id=nav></div><main id=bx></main><footer id=ft></footer>
+<script src=firebase-config.js></script><script src=store.js></script><script src=fx.js></script><script>
+const x=db.pages.find(p=>p.id==new URLSearchParams(location.search).get('id'))||{};hdr('p'+x.id);
+bx.innerHTML=`<h1>${t(x,'title')}</h1><div style="white-space:pre-wrap">${t(x,'body')}</div>`;
+</script></html>

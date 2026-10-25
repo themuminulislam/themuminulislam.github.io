@@ -1,0 +1,9 @@
+<!doctype html><html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>T</title>
+<link rel=stylesheet href=base.css>
+<style>main{max-width:700px}.sum{display:flex;gap:14px;align-items:center;margin-bottom:14px}.sum .im{width:90px;height:68px;border-radius:10px;background-size:cover}.sum button{margin-left:auto}</style>
+<div id=nav></div><main id=bx></main><footer id=ft></footer>
+<script src=firebase-config.js></script><script src=store.js></script><script src=fx.js></script><script>
+hdr('cart');const draw=()=>{const its=cart().map(i=>db.works.find(x=>x.id==i)).filter(Boolean),tot=its.reduce((a,x)=>a+ +x.price,0);
+bx.innerHTML=`<h1>${T('cart')}</h1>`+(its.length?its.map(w=>`<div class=sum><div class=im style="${bg(w)}"></div><div><b>${t(w,'title')}</b><br>৳${w.price}</div><button class=o onclick="rm('${w.id}')">${ic('x',16)}</button></div>`).join('')+`<h3>${T('total')}: ৳${tot}</h3><button onclick="consent(()=>goto('checkout.html?cart=1'))">${T('checkout')}</button>`:`<p class=mu>${T('empty')}</p><a class=btn href=portfolio.html>${T('portfolio')}</a>`)};
+const rm=id=>{localStorage.mi_c=JSON.stringify(cart().filter(x=>x!=id));hdr('cart');draw()};draw();
+</script></html>

@@ -1,0 +1,11 @@
+<!doctype html><html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>About & CV</title>
+<link rel=stylesheet href=base.css>
+<style>.ch{display:inline-block;border:1px solid var(--ln);border-radius:20px;padding:2px 14px;margin:0 6px 6px 0}.tl{border-left:2px solid var(--ac);padding-left:16px;margin-bottom:18px}.tl p{margin:4px 0}main{max-width:760px}@media print{#nav,footer,.btn{display:none}}</style>
+<div id=nav></div><main id=bx></main><footer id=ft></footer>
+<script src=firebase-config.js></script><script src=store.js></script><script src=fx.js></script><script>
+hdr('cv');const p=db.p;
+bx.innerHTML=`<h1>${t(p,'name')}</h1><p style="color:var(--ac)">${t(p,'role')}</p><p>${t(p,'bio')}</p>
+<h2>${T('skills')}</h2>${db.skills.map(s=>`<span class=ch>${t(s,'name')}</span>`).join('')}
+<h2>${T('cos')}</h2>${db.cos.map(c=>`<p><a href="${c.url||'#'}">${c.logo?`<img src="${c.logo}" height=24> `:''}${t(c,'name')}</a></p>`).join('')}
+<h2>${T('exp')}</h2>${db.exp.map(x=>`<div class=tl><b>${t(x,'role')}</b> · ${t(x,'org')}<br><small class=mu>${x.from} – ${x.to}</small><p>${t(x,'desc')}</p></div>`).join('')}`;
+</script></html>

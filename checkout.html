@@ -1,0 +1,26 @@
+<!doctype html><html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>T</title>
+<link rel=stylesheet href=base.css>
+<style>main{max-width:620px}.sum{display:flex;gap:14px;align-items:center;margin-bottom:12px}.sum .im{width:90px;height:68px;border-radius:10px;background-size:cover}.pm{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}.ins{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:12px 0}</style>
+<div id=nav></div><main id=bx></main><footer id=ft></footer>
+<script src=firebase-config.js></script><script src=store.js></script><script src=fx.js></script><script>
+hdr('portfolio');const qp=new URLSearchParams(location.search),its=(qp.has('cart')?cart():[qp.get('id')]).map(i=>db.works.find(x=>x.id==i)).filter(Boolean),tot=its.reduce((a,x)=>a+ +x.price,0);let mth='bkash',v={},E={};
+const keep=()=>['n','e','q','fr','tx'].forEach(i=>{const el=document.getElementById(i);if(el)v[i]=el.value});
+const fe=k=>E[k]?`<p class=fe>${E[k]}</p>`:'',bd=k=>E[k]?'bad':'';
+const draw=()=>{if(!its.length){bx.innerHTML=`<p class=mu>${T('empty')}</p>`;return}
+bx.innerHTML=`${its.map(w=>`<div class=sum><div class=im style="${bg(w)}"></div><div><b>${t(w,'title')}</b><br>৳${w.price}</div></div>`).join('')}<b>৳${tot}</b>
+<label>${T('method')}</label><div class=pm>${['bkash','nagad','bank'].map(k=>`<button class="${mth==k?'':'o'}" onclick="keep();mth='${k}';E={};draw()">${k=='bank'?'Bank':k[0].toUpperCase()+k.slice(1)}</button>`).join('')}</div>
+<div class=ins>${T('pay_to')}: <b>${db.pay[mth]}</b> — ৳${tot}</div>${Object.keys(E).length?`<p class=er>${T('e_top')}</p>`:''}
+<label>${T('name')} *</label><input id=n name=name autocomplete=name class="${bd('n')}" value="${esc(v.n)}">${fe('n')}
+<label>${T('email')} *</label><input id=e name=email type=email autocomplete=email class="${bd('e')}" value="${esc(v.e)}">${fe('e')}
+<label>${T('phone')} *</label><input id=q name=tel type=tel autocomplete=tel class="${bd('q')}" value="${esc(v.q)}">${fe('q')}
+<label>${T('from')} *</label><input id=fr name=from autocomplete=off class="${bd('fr')}" value="${esc(v.fr)}">${fe('fr')}
+<label>${T('trx')} *</label><input id=tx name=trx autocomplete=off class="${bd('tx')}" value="${esc(v.tx)}">${fe('tx')}<div style="height:18px"></div><button onclick=go()>${T('submit')}</button>`};draw();
+const go=()=>{keep();const o={id:Date.now()%1e6,items:its.map(x=>x.id),price:tot,method:mth,name:(v.n||'').trim(),email:(v.e||'').trim(),phone:(v.q||'').trim(),from:(v.fr||'').trim(),trx:(v.tx||'').trim(),status:'pending',l:L,date:new Date().toISOString()};E={};
+if(o.name.length<2)E.n=T('e_name');if(!chk.email(o.email))E.e=T('e_email');if(!chk.phone(o.phone))E.q=T('e_phone');
+if(mth=='bank'){if(o.from.length<4)E.fr=T('e_from_b')}else if(!chk.phone(o.from))E.fr=T('e_from_m');
+if(!chk.trx(o.trx))E.tx=T('e_trx');;
+if(Object.keys(E).length){draw();const f=document.querySelector('.fe');if(f)f.scrollIntoView({block:'center',behavior:'smooth'});return}
+API.order(o).then(()=>{if(qp.has('cart'))localStorage.mi_c='[]';fin(o)}).catch(()=>{E.tx=T('dupe');draw()})};
+const fin=o=>{const wa='https://wa.me/'+db.p.wa+'?text='+encodeURIComponent(`New order #${o.id}\n${its.map(x=>t(x,'title')).join(', ')} ৳${tot}\n${mth} from ${o.from}\nTrxID: ${o.trx}\n${o.name} ${o.email}`);
+bx.innerHTML=`<div class=ok>${ic('check',34)}</div><p>${fill(t(db.tpl,'ack'),o)}</p><a class=btn target=_blank href="${wa}">${ic('whatsapp',18)} ${T('wa')}</a>`;hdr('portfolio')};
+</script></html>
