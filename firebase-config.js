@@ -1,8 +1,12 @@
-/* এই ফাইলে আপনার Firebase ও Cloudinary তথ্য বসান। ফাঁকা থাকলে সাইট "ডেমো মোডে" (শুধু ব্রাউজারে ডেটা) চলে।
-   Fill in your Firebase and Cloudinary details. Left empty, the site runs in demo mode (data stays in the browser). */
+/* Firebase সংযোগ: Muminul Islam সাইট */
 window.SITE_CFG={
-  firebase:{apiKey:'',authDomain:'',projectId:'',appId:''},
-  adminEmail:'',            // অ্যাডমিনের ইমেইল (Firebase Authentication-এ যেটা বানাবেন)
-  adminPage:'admin.html',   // অ্যাডমিন পেজের ফাইলের নাম (গোপন নামে বদলানো ভালো)
-  cloudinary:{cloud:'',preset:''}  // ছবির জন্য (Cloudinary cloud name ও unsigned upload preset)
+  firebase:{
+    apiKey:'AIzaSyAsN0NBgkwFBUtCztoXBN1RIGfjd1SKPfc',
+    authDomain:'muminul-islam-web.firebaseapp.com',
+    projectId:'muminul-islam-web',
+    appId:'1:51294817212:web:8a4feea4d37603e52879b9'
+  },
+  adminEmail:'themuminulislam@gmail.com',
+  adminPage:'admin.html',
+  cloudinary:{cloud:'',preset:''}   // ছবির জন্য, পরে বসানো হবে
 };
