@@ -9,7 +9,7 @@
 hdr('index');const p=db.p;
 nm.textContent=t(p,'name');nm.className='gt';rl.textContent=t(p,'role');bi.textContent=t(p,'bio');t1.textContent=T('t1');t2.textContent=T('t2');s1.textContent=t(p,'s1');s2.textContent=t(p,'s2');all.textContent=T('seeall');so.innerHTML=socs();const sh=(el,k)=>{if(db.p[k]===false)el.style.display='none'};sh(document.querySelector('.who'),'show_who');sh(s1.closest('a'),'show_s1');sh(s2.closest('a'),'show_s2');sh(bi,'show_bio');sh(so,'show_soc');
 if(db.p.show_stats)API.stats().then(z=>{sx.innerHTML=`<div class=sx><div><b>${z.u}</b><span>${T('visitors')}</span></div><div><b>${z.v}</b><span>${T('views')}</span></div><div><b>${z.d}</b><span>${T('downloads')}</span></div></div>`});
-if(p.photo)ph.style.backgroundImage=`url(${p.photo})`;ini.textContent=p.photo?'':t(p,'name').split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
+if(p.photo){ph.style.backgroundImage=`url(${p.photo})`;ph.style.backgroundPosition=(p.photo_x??50)+'% '+(p.photo_y??50)+'%'}ini.textContent=p.photo?'':t(p,'name').split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
 fh.textContent=T('feat');fg.innerHTML=db.works.slice(0,3).map(card).join('');
 co.innerHTML=db.cos.map(c=>`<a href="${c.url||'#'}">${c.logo?`<img src="${c.logo}" height=24> `:''}${t(c,'name')}</a>`).join('');
 </script></html>

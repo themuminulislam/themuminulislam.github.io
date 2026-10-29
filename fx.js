@@ -5,8 +5,8 @@ const cv=d.createElement('canvas'),g2=cv.getContext('2d'),S=30,R=120;cv.id='dots
 let W,H,P=[],mx=-999,my=-999,col='rgba(255,255,255,.1)',ac='#2ee6c0',fr=0,still=false;
 const init=()=>{const r=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*r;cv.height=H*r;cv.style.width=W+'px';cv.style.height=H+'px';g2.setTransform(r,0,0,r,0,0);P=[];for(let y=S/2;y<H+S;y+=S)for(let x=S/2;x<W+S;x+=S)P.push({x,y,hx:x,hy:y,vx:0,vy:0});still=false};
 init();addEventListener('resize',init);
-addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;still=false});
-const away=()=>{mx=my=-999;still=false};d.documentElement.addEventListener('mouseleave',away);addEventListener('blur',away);addEventListener('pointerup',e=>{if(e.pointerType=='touch')away()});
+let lt='';addEventListener('pointermove',e=>{lt=e.pointerType;mx=e.clientX;my=e.clientY;still=false;d.documentElement.dataset.dots='on'});
+const away=()=>{mx=my=-999;still=false;d.documentElement.dataset.dots='off'};['pointercancel','touchend','touchcancel'].forEach(t=>addEventListener(t,away,{passive:true}));addEventListener('scroll',()=>{if(lt=='touch')away()},{passive:true});d.documentElement.addEventListener('mouseleave',away);addEventListener('blur',away);addEventListener('pointerup',e=>{if(e.pointerType=='touch')away()});
 (function f(){if(fr++%40==0){const cs=getComputedStyle(d.documentElement),c1=cs.getPropertyValue('--dot').trim()||col;if(c1!=col){col=c1;still=false}ac=cs.getPropertyValue('--ac').trim()||ac}
 if(still){requestAnimationFrame(f);return}
 g2.clearRect(0,0,W,H);let mv=0;
