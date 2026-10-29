@@ -1,5 +1,5 @@
 /* Shared mouse & scroll effects. Remove the <script src=fx.js> line from a page to switch them off there. */
-(()=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const d=document,tc=matchMedia('(hover:none)').matches;
+(()=>{const d=document,tc=matchMedia('(hover:none)').matches;
 
 const cv=d.createElement('canvas'),g2=cv.getContext('2d'),S=30,R=120;cv.id='dots';d.body.prepend(cv);d.body.classList.add('dc');
 let W,H,P=[],mx=-999,my=-999,col='rgba(255,255,255,.1)',ac='#2ee6c0',fr=0,still=false;

@@ -1,14 +1,14 @@
-<!doctype html><html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>T</title>
+<!doctype html><html><meta charset=utf-8><link rel=icon type="image/svg+xml" href=favicon.svg><meta name=viewport content="width=device-width,initial-scale=1"><title>T</title>
 <link rel=stylesheet href=base.css>
 <style>main{max-width:620px}.sum{display:flex;gap:14px;align-items:center;margin-bottom:12px}.sum .im{width:90px;height:68px;border-radius:10px;background-size:cover}.pm{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}.ins{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:12px 0}</style>
 <div id=nav></div><main id=bx></main><footer id=ft></footer>
 <script src=firebase-config.js></script><script src=store.js></script><script src=fx.js></script><script>
-hdr('portfolio');const qp=new URLSearchParams(location.search),its=(qp.has('cart')?cart():[qp.get('id')]).map(i=>db.works.find(x=>x.id==i)).filter(Boolean),tot=its.reduce((a,x)=>a+ +x.price,0);let mth='bkash',v={},E={};
+hdr('portfolio');document.body.classList.add('nofl');const qp=new URLSearchParams(location.search),its=(qp.has('cart')?cart():[qp.get('id')]).map(i=>db.works.find(x=>x.id==i)).filter(Boolean),tot=its.reduce((a,x)=>a+ +x.price,0);let mth='bkash',v={},E={};
 const keep=()=>['n','e','q','fr','tx'].forEach(i=>{const el=document.getElementById(i);if(el)v[i]=el.value});
 const fe=k=>E[k]?`<p class=fe>${E[k]}</p>`:'',bd=k=>E[k]?'bad':'';
 const draw=()=>{if(!its.length){bx.innerHTML=`<p class=mu>${T('empty')}</p>`;return}
 bx.innerHTML=`${its.map(w=>`<div class=sum><div class=im style="${bg(w)}"></div><div><b>${t(w,'title')}</b><br>৳${w.price}</div></div>`).join('')}<b>৳${tot}</b>
-<label>${T('method')}</label><div class=pm>${['bkash','nagad','bank'].map(k=>`<button class="${mth==k?'':'o'}" onclick="keep();mth='${k}';E={};draw()">${k=='bank'?'Bank':k[0].toUpperCase()+k.slice(1)}</button>`).join('')}</div>
+<label>${T('method')}</label><div class=pm>${['bkash','nagad','bank'].map(k=>`<button class="${mth==k?'':'o'}" onclick="keep();mth='${k}';E={};draw()">${({bkash:'bKash',nagad:'Nagad',bank:'Bank'})[k]}</button>`).join('')}</div>
 <div class=ins>${T('pay_to')}: <b>${db.pay[mth]}</b> — ৳${tot}</div>${Object.keys(E).length?`<p class=er>${T('e_top')}</p>`:''}
 <label>${T('name')} *</label><input id=n name=name autocomplete=name class="${bd('n')}" value="${esc(v.n)}">${fe('n')}
 <label>${T('email')} *</label><input id=e name=email type=email autocomplete=email class="${bd('e')}" value="${esc(v.e)}">${fe('e')}
